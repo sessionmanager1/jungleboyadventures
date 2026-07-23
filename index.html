@@ -162,6 +162,27 @@ header{
 .scroll-cue .stick{width:1px;height:26px;background:linear-gradient(var(--white),transparent);animation:scrollcue 1.8s ease-in-out infinite;}
 @keyframes scrollcue{0%{transform:scaleY(0.3);opacity:0;}50%{transform:scaleY(1);opacity:1;}100%{transform:scaleY(0.3);opacity:0;}}
 
+/* ===== DESTINATIONS ===== */
+.dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:10px;}
+.dest-card{
+  position:relative;padding:28px 24px 26px;border-radius:22px;overflow:hidden;
+  transition:transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.dest-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent,var(--crimson)),transparent);
+}
+.dest-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -18px rgba(33,23,20,0.4);}
+.dest-code{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent,var(--crimson));margin-bottom:14px;display:block;}
+.dest-card h3{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:10px;}
+.dest-card p{font-size:13.8px;line-height:1.65;color:var(--charcoal-soft);}
+.dest-card .dest-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:13px;font-weight:700;color:var(--accent,var(--crimson));}
+.dest-card .dest-link svg{width:14px;height:14px;transition:transform .3s;}
+.dest-card:hover .dest-link svg{transform:translateX(4px);}
+.dest-tz{grid-column:span 2;background:linear-gradient(135deg,rgba(163,22,33,0.06),rgba(199,154,86,0.08));}
+@media(max-width:1100px){.dest-grid{grid-template-columns:repeat(2,1fr);} .dest-tz{grid-column:span 2;}}
+@media(max-width:560px){.dest-grid{grid-template-columns:1fr;} .dest-tz{grid-column:span 1;}}
+
 /* ===== SECTION GENERIC ===== */
 section{position:relative;padding:120px 0;}
 .section-tight{padding:90px 0;}
@@ -333,6 +354,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.75);padding:80px 0 30
   <div class="nav-inner">
     <a href="#home" class="logo"><span class="logo-mark"></span> Jungle Boy Adventures</a>
     <nav class="nav-links">
+      <a href="#destinations">Destinations</a>
       <a href="#experiences">Experiences</a>
       <a href="#gallery">Gallery</a>
       <a href="#guide">Our Guide</a>
@@ -345,6 +367,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.75);padding:80px 0 30
     <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-panel" id="mobilePanel">
+    <a href="#destinations">Destinations</a>
     <a href="#experiences">Experiences</a>
     <a href="#gallery">Gallery</a>
     <a href="#guide">Our Guide</a>
@@ -377,6 +400,67 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.75);padding:80px 0 30
   </div>
   <div class="hero-dots" id="heroDots"></div>
   <div class="scroll-cue"><span>Scroll</span><span class="stick"></span></div>
+</section>
+
+<!-- ============ DESTINATIONS ============ -->
+<section id="destinations" class="section-tight">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="field-log">Field Log — Where We Roam</div>
+      <h2>Destinations</h2>
+      <p>From the Mara's rolling plains to the Serengeti's endless horizon — the ground we cover across East Africa.</p>
+    </div>
+    <div class="dest-grid reveal">
+      <div class="glass dest-card" style="--accent:#A31621;">
+        <span class="dest-code">KE · Big Five Territory</span>
+        <h3>Maasai Mara</h3>
+        <p>Rolling savannah, dense predator populations, and the Great Migration crossing the Mara River each year.</p>
+        <a href="#booking" class="dest-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="glass dest-card" style="--accent:#C79A56;">
+        <span class="dest-code">KE · Kilimanjaro Views</span>
+        <h3>Amboseli</h3>
+        <p>Free-roaming elephant herds framed against the snowcap of Kilimanjaro on the Tanzanian border.</p>
+        <a href="#booking" class="dest-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="glass dest-card" style="--accent:#A31621;">
+        <span class="dest-code">KE · Rift Valley Lakes</span>
+        <h3>Lake Nakuru</h3>
+        <p>A soda lake ringed with flamingos, and a rhino sanctuary protecting both black and white rhino.</p>
+        <a href="#booking" class="dest-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="glass dest-card" style="--accent:#C79A56;">
+        <span class="dest-code">KE · Rift Valley Lakes</span>
+        <h3>Lake Naivasha</h3>
+        <p>Freshwater boat safaris among hippos, fish eagles, and the towering cliffs of Hell's Gate nearby.</p>
+        <a href="#booking" class="dest-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="glass dest-card" style="--accent:#A31621;">
+        <span class="dest-code">KE · Northern Frontier</span>
+        <h3>Samburu</h3>
+        <p>Arid, riverine landscapes home to species found nowhere else in Kenya — Grevy's zebra, reticulated giraffe.</p>
+        <a href="#booking" class="dest-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="glass dest-card" style="--accent:#C79A56;">
+        <span class="dest-code">KE · Red Earth Wilderness</span>
+        <h3>Tsavo</h3>
+        <p>Kenya's largest park — vast red-dust plains and elephants stained the same rust colour as the soil.</p>
+        <a href="#booking" class="dest-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="glass dest-card" style="--accent:#A31621;">
+        <span class="dest-code">KE · Conservancy</span>
+        <h3>Ol Pejeta</h3>
+        <p>A pioneering conservancy safeguarding the last northern white rhino alongside chimpanzee sanctuary work.</p>
+        <a href="#booking" class="dest-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="glass dest-card dest-tz" style="--accent:#C79A56;">
+        <span class="dest-code">TZ · Cross-Border Extension</span>
+        <h3>Tanzania</h3>
+        <p>Extend your safari across the border to the Serengeti and Ngorongoro Crater — a natural continuation of the Mara ecosystem, arranged as a seamless add-on to your itinerary.</p>
+        <a href="#booking" class="dest-link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ============ MANYATTA VISIT ============ -->
@@ -674,6 +758,7 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.75);padding:80px 0 30
       </div>
       <div class="footer-col">
         <h4>Explore</h4>
+        <a href="#destinations">Destinations</a>
         <a href="#manyatta">Manyatta Visit</a>
         <a href="#game-drives">Game Drives</a>
         <a href="#big-five">Big Five Safaris</a>
