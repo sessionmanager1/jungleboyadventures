@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jungle Boy Adventures | Luxury Maasai Mara Safaris</title>
+<meta name="description" content="Jungle Boy Adventures — bespoke luxury safaris in the Maasai Mara. Game drives, balloon safaris, Big Five encounters, sundowners and authentic Maasai cultural visits with expert guide Simon Kupai.">
+<meta name="keywords" content="Maasai Mara safari, luxury safari Kenya, Big Five safari, balloon safari, Manyatta visit, game drives, Jungle Boy Adventures">
+<meta property="og:title" content="Jungle Boy Adventures | Luxury Maasai Mara Safaris">
+<meta property="og:description" content="Bespoke luxury safari experiences in the heart of the Maasai Mara.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#FBF6F1;
+  --white:#FFFFFF;
+  --crimson:#A31621;
+  --crimson-deep:#6E0F17;
+  --crimson-bright:#D4283A;
+  --charcoal:#211714;
+  --charcoal-soft:#3A2C27;
+  --gold:#C79A56;
+  --glass-bg:rgba(255,255,255,0.55);
+  --glass-bg-dark:rgba(33,23,20,0.45);
+  --glass-border:rgba(255,255,255,0.35);
+  --shadow-soft:0 20px 60px -20px rgba(33,23,20,0.35);
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--ivory);
+  color:var(--charcoal);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{
+  font-family:'Fraunces',serif;
+  font-weight:600;
+  letter-spacing:-0.01em;
+  color:var(--charcoal);
+}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+.container{max-width:1240px;margin:0 auto;padding:0 24px;}
+::selection{background:var(--crimson);color:var(--white);}
+
+/* field log signature tag */
+.field-log{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--crimson);
+  padding:6px 14px 6px 10px;
+  border:1px solid rgba(163,22,33,0.3);
+  border-radius:100px;
+  background:rgba(163,22,33,0.05);
+  margin-bottom:22px;
+}
+.field-log::before{
+  content:"";width:6px;height:6px;border-radius:50%;background:var(--crimson-bright);
+  box-shadow:0 0 0 3px rgba(212,40,58,0.18);
+}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'Manrope',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:0.02em;
+  padding:15px 30px;border-radius:100px;cursor:pointer;border:none;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .35s var(--ease);
+  white-space:nowrap;
+}
+.btn-primary{background:linear-gradient(135deg,var(--crimson-bright),var(--crimson-deep));color:var(--white);box-shadow:0 14px 30px -10px rgba(163,22,33,0.55);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 20px 40px -12px rgba(163,22,33,0.65);}
+.btn-glass{background:var(--glass-bg);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);border:1px solid var(--glass-border);color:var(--charcoal);}
+.btn-glass:hover{transform:translateY(-3px);background:rgba(255,255,255,0.75);}
+.btn svg{width:17px;height:17px;flex-shrink:0;}
+
+/* glass card base */
+.glass{
+  background:var(--glass-bg);
+  backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow-soft);
+}
+
+/* ===== NAV ===== */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:16px 0;
+  transition:padding .4s var(--ease);
+}
+.nav-inner{
+  max-width:1240px;margin:0 auto;padding:12px 22px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-radius:100px;
+  background:rgba(255,255,255,0.55);
+  backdrop-filter:blur(18px) saturate(180%);
+  -webkit-backdrop-filter:blur(18px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.4);
+  box-shadow:0 10px 40px -18px rgba(33,23,20,0.3);
+}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:var(--charcoal);}
+.logo-mark{width:34px;height:34px;border-radius:50%;position:relative;background:conic-gradient(from 220deg,var(--crimson-bright),var(--gold),var(--crimson-deep));flex-shrink:0;}
+.logo-mark::after{content:"";position:absolute;inset:5px;border-radius:50%;background:var(--ivory);}
+.logo-mark::before{content:"";position:absolute;left:50%;top:56%;width:60%;height:2px;background:var(--crimson);transform:translate(-50%,-50%) rotate(4deg);z-index:2;border-radius:2px;}
+.nav-links{display:flex;gap:30px;align-items:center;}
+.nav-links a{font-size:14px;font-weight:600;color:var(--charcoal-soft);transition:color .25s;position:relative;}
+.nav-links a:hover{color:var(--crimson);}
+.nav-cta{display:flex;align-items:center;gap:12px;}
+.hamburger{display:none;width:24px;height:18px;position:relative;cursor:pointer;background:none;border:none;}
+.hamburger span{position:absolute;left:0;width:100%;height:2px;background:var(--charcoal);border-radius:2px;transition:.3s var(--ease);}
+.hamburger span:nth-child(1){top:0;}
+.hamburger span:nth-child(2){top:8px;}
+.hamburger span:nth-child(3){top:16px;}
+.hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+.mobile-panel{
+  display:none;position:fixed;top:78px;left:16px;right:16px;z-index:999;
+  flex-direction:column;gap:4px;padding:18px;border-radius:24px;
+  background:rgba(255,255,255,0.9);backdrop-filter:blur(20px);
+  box-shadow:var(--shadow-soft);
+}
+.mobile-panel a{padding:12px 10px;font-weight:600;border-radius:12px;font-size:15px;}
+.mobile-panel a:hover{background:rgba(163,22,33,0.06);color:var(--crimson);}
+.mobile-panel.open{display:flex;}
+
+@media (max-width:900px){
+  .nav-links,.nav-cta .btn-glass{display:none;}
+  .hamburger{display:block;}
+}
+
+/* ===== HERO ===== */
+.hero{position:relative;height:100vh;min-height:640px;overflow:hidden;}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease;}
+.hero-slide.active{opacity:1;}
+.hero-slide img{width:100%;height:100%;object-fit:cover;animation:kenburns 12s ease-in-out infinite alternate;}
+@keyframes kenburns{from{transform:scale(1);}to{transform:scale(1.09);}}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,10,8,0.35) 0%,rgba(20,10,8,0.15) 35%,rgba(20,10,8,0.75) 100%);}
+.hero-content{position:relative;z-index:5;height:100%;display:flex;align-items:flex-end;padding-bottom:min(9vh,90px);}
+.hero-card{max-width:640px;padding:38px 40px;border-radius:28px;background:rgba(255,255,255,0.14);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(255,255,255,0.25);}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);opacity:0.85;display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.hero-eyebrow span.line{width:36px;height:1px;background:var(--gold);}
+.hero h1{color:var(--white);font-size:clamp(38px,6vw,68px);line-height:1.02;font-weight:600;}
+.hero h1 em{font-style:italic;color:var(--gold);font-weight:500;}
+.hero p{color:rgba(255,255,255,0.88);margin-top:18px;font-size:16.5px;line-height:1.6;max-width:480px;}
+.hero-btns{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+.hero-dots{position:absolute;bottom:26px;right:26px;z-index:6;display:flex;gap:8px;}
+.hero-dots button{width:9px;height:9px;border-radius:50%;border:1px solid rgba(255,255,255,0.6);background:transparent;cursor:pointer;padding:0;}
+.hero-dots button.active{background:var(--white);}
+.scroll-cue{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:6;color:var(--white);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0.8;}
+.scroll-cue .stick{width:1px;height:26px;background:linear-gradient(var(--white),transparent);animation:scrollcue 1.8s ease-in-out infinite;}
+@keyframes scrollcue{0%{transform:scaleY(0.3);opacity:0;}50%{transform:scaleY(1);opacity:1;}100%{transform:scaleY(0.3);opacity:0;}}
+
+/* ===== SECTION GENERIC ===== */
+section{position:relative;padding:120px 0;}
+.section-tight{padding:90px 0;}
+.section-head{max-width:640px;margin-bottom:56px;}
+.section-head h2{font-size:clamp(30px,4vw,46px);line-height:1.08;}
+.section-head p{margin-top:16px;font-size:16px;line-height:1.7;color:var(--charcoal-soft);}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+
+/* alternating experience block */
+.exp-block{display:grid;grid-template-columns:1.05fr 0.95fr;gap:0;align-items:center;}
+.exp-block.reverse{direction:rtl;}
+.exp-block.reverse > *{direction:ltr;}
+.exp-media{position:relative;}
+.exp-media .frame{border-radius:26px;overflow:hidden;box-shadow:var(--shadow-soft);position:relative;}
+.exp-media img{width:100%;height:520px;object-fit:cover;transition:transform .8s var(--ease);}
+.exp-media:hover img{transform:scale(1.04);}
+.exp-text{padding:0 min(6vw,70px);}
+.exp-text h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:18px;}
+.exp-text p{color:var(--charcoal-soft);line-height:1.75;font-size:15.5px;margin-bottom:14px;}
+.exp-text .btn{margin-top:16px;}
+
+@media(max-width:900px){
+  .exp-block,.exp-block.reverse{grid-template-columns:1fr;direction:ltr;}
+  .exp-text{padding:36px 8px 0;}
+  .exp-media img{height:340px;}
+}
+
+/* gallery grids */
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:10px;}
+.gallery-grid .g-item{border-radius:18px;overflow:hidden;position:relative;cursor:pointer;box-shadow:0 14px 32px -18px rgba(33,23,20,0.4);}
+.gallery-grid .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.gallery-grid .g-item:hover img{transform:scale(1.08);}
+.gallery-grid .g-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,10,8,0.45));opacity:0;transition:opacity .4s;}
+.gallery-grid .g-item:hover::after{opacity:1;}
+.g-tall{grid-row:span 2;}
+.gallery-grid .g-item img{height:230px;}
+.g-tall img{height:100%;min-height:476px;}
+@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);} .g-tall img{min-height:230px;}}
+
+/* masonry photography */
+.masonry{column-count:4;column-gap:16px;margin-top:10px;}
+.masonry .m-item{break-inside:avoid;margin-bottom:16px;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 14px 30px -18px rgba(33,23,20,0.4);position:relative;}
+.masonry .m-item img{width:100%;display:block;transition:transform .6s var(--ease);}
+.masonry .m-item:hover img{transform:scale(1.06);}
+@media(max-width:1100px){.masonry{column-count:3;}}
+@media(max-width:700px){.masonry{column-count:2;column-gap:10px;} .masonry .m-item{margin-bottom:10px;}}
+
+/* dark band sections (sundowner / balloon) */
+.dark-band{background:radial-gradient(ellipse at 30% 20%,#3a2117 0%,var(--charcoal) 60%);color:var(--white);}
+.dark-band .field-log{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.25);color:var(--gold);}
+.dark-band .field-log::before{background:var(--gold);box-shadow:0 0 0 3px rgba(199,154,86,0.2);}
+.dark-band .section-head h2{color:var(--white);}
+.dark-band .section-head p{color:rgba(255,255,255,0.72);}
+.dark-full{position:relative;border-radius:0;overflow:hidden;}
+.dark-full img{width:100%;height:640px;object-fit:cover;}
+.dark-full .overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,10,8,0.85) 0%,rgba(20,10,8,0.3) 55%,transparent 100%);display:flex;align-items:center;}
+.dark-full .overlay-inner{padding:0 60px;max-width:560px;}
+.dark-full h2{color:var(--white);font-size:clamp(30px,4vw,48px);}
+.dark-full p{color:rgba(255,255,255,0.82);margin-top:16px;line-height:1.75;font-size:15.5px;}
+@media(max-width:900px){.dark-full img{height:460px;} .dark-full .overlay{background:linear-gradient(180deg,rgba(20,10,8,0.35),rgba(20,10,8,0.92));align-items:flex-end;} .dark-full .overlay-inner{padding:30px;max-width:100%;}}
+
+/* balloon 3-image feature */
+.trio{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:560px;}
+.trio .t-main{grid-row:span 2;border-radius:22px;overflow:hidden;}
+.trio .t-small{border-radius:22px;overflow:hidden;}
+.trio img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
+.trio div:hover img{transform:scale(1.06);}
+@media(max-width:900px){.trio{grid-template-columns:1fr;grid-template-rows:auto;height:auto;} .trio .t-main{grid-row:auto;} .trio img{height:280px;}}
+
+/* guide profile */
+.guide-wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
+.guide-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.guide-photos img{border-radius:20px;height:230px;object-fit:cover;box-shadow:0 14px 30px -16px rgba(33,23,20,0.4);}
+.guide-photos img:nth-child(1){grid-column:span 2;height:260px;}
+.guide-card h3{font-size:clamp(26px,3vw,36px);}
+.guide-role{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--crimson);margin:8px 0 20px;}
+.guide-card p{color:var(--charcoal-soft);line-height:1.8;font-size:15.5px;margin-bottom:14px;}
+.guide-stats{display:flex;gap:34px;margin-top:24px;}
+.guide-stats div strong{font-family:'Fraunces',serif;font-size:26px;display:block;color:var(--crimson);}
+.guide-stats div span{font-size:12.5px;color:var(--charcoal-soft);}
+@media(max-width:900px){.guide-wrap{grid-template-columns:1fr;}}
+
+/* testimonials */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:10px;}
+.testi-card{padding:30px;border-radius:22px;}
+.testi-stars{color:var(--gold);letter-spacing:2px;font-size:15px;margin-bottom:16px;}
+.testi-card p{font-size:15px;line-height:1.75;color:var(--charcoal-soft);font-style:italic;}
+.testi-who{display:flex;align-items:center;gap:12px;margin-top:20px;}
+.testi-avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--crimson-bright),var(--gold));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-weight:600;}
+.testi-who strong{display:block;font-size:14.5px;}
+.testi-who span{font-size:12.5px;color:var(--charcoal-soft);}
+@media(max-width:900px){.testi-grid{grid-template-columns:1fr;}}
+
+/* form styling shared */
+.form-card{padding:40px;border-radius:28px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+.field.full{grid-column:1/-1;}
+.field label{font-size:12.5px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--charcoal-soft);}
+.field input,.field select,.field textarea{
+  padding:13px 16px;border-radius:13px;border:1px solid rgba(33,23,20,0.14);
+  background:rgba(255,255,255,0.7);font-family:'Manrope',sans-serif;font-size:14.5px;color:var(--charcoal);
+  outline:none;transition:border .25s,box-shadow .25s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--crimson);box-shadow:0 0 0 4px rgba(163,22,33,0.12);}
+.field textarea{resize:vertical;min-height:100px;}
+.star-input{display:flex;gap:6px;font-size:26px;cursor:pointer;}
+.star-input span{color:#d9cfc7;transition:color .2s;}
+.star-input span.active,.star-input span:hover,.star-input span:hover ~ span{}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr;}}
+
+/* saved reviews list */
+.review-log{margin-top:40px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+@media(max-width:700px){.review-log{grid-template-columns:1fr;}}
+
+/* booking */
+.booking-section{position:relative;}
+.booking-section::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(163,22,33,0.06),transparent 60%);pointer-events:none;}
+
+/* contact */
+.contact-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:40px;}
+.contact-card{padding:34px;border-radius:24px;}
+.contact-row{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px solid rgba(33,23,20,0.08);}
+.contact-row:last-child{border-bottom:none;}
+.contact-icon{width:44px;height:44px;border-radius:14px;background:rgba(163,22,33,0.08);display:flex;align-items:center;justify-content:center;color:var(--crimson);flex-shrink:0;}
+.contact-row strong{display:block;font-size:14px;}
+.contact-row span{font-size:13.5px;color:var(--charcoal-soft);}
+.map-frame{border-radius:24px;overflow:hidden;height:100%;min-height:340px;box-shadow:var(--shadow-soft);}
+.map-frame iframe{width:100%;height:100%;min-height:340px;border:0;}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+
+/* footer */
+footer{background:var(--charcoal);color:rgba(255,255,255,0.75);padding:80px 0 30px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:60px;}
+.footer-logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:20px;color:var(--white);margin-bottom:16px;}
+.footer-col h4{color:var(--white);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px;}
+.footer-col a{display:block;font-size:14px;margin-bottom:12px;color:rgba(255,255,255,0.65);transition:color .25s;}
+.footer-col a:hover{color:var(--gold);}
+.footer-social{display:flex;gap:12px;margin-top:20px;}
+.footer-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;transition:.3s;}
+.footer-social a:hover{background:var(--crimson);transform:translateY(-3px);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,0.5);}
+@media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:2000;background:rgba(15,8,7,0.94);display:none;align-items:center;justify-content:center;padding:30px;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:min(1100px,92vw);max-height:86vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,0.6);}
+.lightbox-close{position:absolute;top:26px;right:30px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,0.1);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:22px;border:1px solid rgba(255,255,255,0.2);}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.1);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;border:1px solid rgba(255,255,255,0.2);}
+.lightbox-prev{left:24px;}
+.lightbox-next{right:24px;}
+@media(max-width:600px){.lightbox-nav{width:40px;height:40px;} .lightbox-close{top:16px;right:16px;}}
+
+/* toast */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(20px);z-index:3000;background:var(--charcoal);color:#fff;padding:16px 26px;border-radius:100px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:.4s var(--ease);box-shadow:0 20px 40px rgba(0,0,0,0.3);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* whatsapp floating */
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:900;width:60px;height:60px;border-radius:50%;background:#1DA851;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 34px rgba(29,168,81,0.45);animation:pulse 2.4s infinite;}
+.wa-float svg{width:30px;height:30px;fill:#fff;}
+@keyframes pulse{0%{box-shadow:0 16px 34px rgba(29,168,81,0.45);}50%{box-shadow:0 16px 34px rgba(29,168,81,0.2), 0 0 0 12px rgba(29,168,81,0.12);}100%{box-shadow:0 16px 34px rgba(29,168,81,0.45);}}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header>
+  <div class="nav-inner">
+    <a href="#home" class="logo"><span class="logo-mark"></span> Jungle Boy Adventures</a>
+    <nav class="nav-links">
+      <a href="#experiences">Experiences</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#guide">Our Guide</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#booking" class="btn btn-glass">Book Safari</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#experiences">Experiences</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#guide">Our Guide</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#contact">Contact</a>
+    <a href="#booking">Book Safari</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-slide active"><img src="https://i.ibb.co/LDBsX71c/IMG-20260723-WA0104.jpg" alt="Safari vehicle on game drive in the Maasai Mara" loading="eager"></div>
+  <div class="hero-slide"><img src="https://i.ibb.co/LDLLd75B/e4d097d7ab699ed0294fd5e4e5ae1f0f.jpg" alt="Big Five wildlife in the Maasai Mara" loading="lazy"></div>
+  <div class="hero-slide"><img src="https://i.ibb.co/N2h2BTWP/23edacaa9a8fe2bddfe29aceff2ca824.jpg" alt="Hot air balloon safari over the savannah at sunrise" loading="lazy"></div>
+  <div class="hero-slide"><img src="https://i.ibb.co/BKTJC9q8/79cf1b0bfd3f112bb10c0e137ecfdba3.jpg" alt="Luxury sundowner experience at sunset" loading="lazy"></div>
+  <div class="hero-scrim"></div>
+  <div class="container hero-content">
+    <div class="hero-card">
+      <div class="hero-eyebrow"><span class="line"></span> Maasai Mara, Kenya &nbsp;·&nbsp; Est. Field Guides</div>
+      <h1>Track the wild,<br><em>live</em> the safari.</h1>
+      <p>Bespoke luxury safaris through the Maasai Mara — game drives, balloon flights, sundowners and authentic Maasai culture, guided by hands that know this land.</p>
+      <div class="hero-btns">
+        <a href="#booking" class="btn btn-primary">Book Your Safari</a>
+        <a href="https://wa.me/254728299843" target="_blank" rel="noopener" class="btn btn-glass" style="color:#fff;background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.3);">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.3.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.5-.3Z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots" id="heroDots"></div>
+  <div class="scroll-cue"><span>Scroll</span><span class="stick"></span></div>
+</section>
+
+<!-- ============ MANYATTA VISIT ============ -->
+<section id="manyatta">
+  <div class="container">
+    <div class="exp-block reveal">
+      <div class="exp-media">
+        <div class="frame"><img src="https://i.ibb.co/yBQ9vVcR/8df5905e8ecdf8bb0542825288b905ea.jpg" alt="Maasai Manyatta cultural visit" loading="lazy"></div>
+      </div>
+      <div class="exp-text">
+        <div class="field-log">Field Log — Manyatta, Southern Mara</div>
+        <h2>The Manyatta Visit</h2>
+        <p>Step inside a living Maasai homestead. A Manyatta visit is an invitation into daily life — mud-and-dung homes built by hand, cattle kraals at the centre of the compound, and generations of knowledge passed down around the fire.</p>
+        <p>Meet the families who call the Mara home, hear the meaning behind the beadwork worn by every age-set, and understand how this community has coexisted with the wildlife around it for centuries.</p>
+        <a href="#booking" class="btn btn-primary">Add to My Safari</a>
+      </div>
+    </div>
+    <div class="gallery-grid reveal" style="margin-top:60px;">
+      <div class="g-item g-tall"><img src="https://i.ibb.co/yBQ9vVcR/8df5905e8ecdf8bb0542825288b905ea.jpg" alt="Maasai Manyatta homestead" loading="lazy" onclick="openLightbox('manyatta',0)"></div>
+      <div class="g-item"><img src="https://i.ibb.co/0yDSsQmk/526425c3bec4cdd6139406c4810242cf.jpg" alt="Maasai cultural visit" loading="lazy" onclick="openLightbox('manyatta',1)"></div>
+      <div class="g-item"><img src="https://i.ibb.co/zKFhmQK/525bc87a46faec542c7b5e27e64b01ef.jpg" alt="Maasai Manyatta community" loading="lazy" onclick="openLightbox('manyatta',2)"></div>
+      <div class="g-item" style="grid-column:span 2;"><img src="https://i.ibb.co/6R5Rqd16/5376d4cfe3a0fd3b780ad6b76bde0290.jpg" alt="Maasai Manyatta traditions" loading="lazy" onclick="openLightbox('manyatta',3)"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUNDOWNER ============ -->
+<section class="dark-band section-tight" id="sundowner">
+  <div class="dark-full reveal">
+    <img src="https://i.ibb.co/BKTJC9q8/79cf1b0bfd3f112bb10c0e137ecfdba3.jpg" alt="Luxury sundowner experience over the Maasai Mara at sunset" loading="lazy">
+    <div class="overlay">
+      <div class="overlay-inner">
+        <div class="field-log">Field Log — Golden Hour</div>
+        <h2>The Sundowner</h2>
+        <p>As the plains cool and the sky turns copper, we pull over on a quiet ridge, pour something chilled, and let the Mara put on its finest show. No agenda, no schedule — just the sound of the bush settling into night around you.</p>
+        <a href="#booking" class="btn btn-primary" style="margin-top:22px;">Reserve a Sundowner</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAME DRIVES ============ -->
+<section id="game-drives">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="field-log">Field Log — Dawn &amp; Dusk Patrols</div>
+      <h2>Game Drives</h2>
+      <p>Twice-daily drives timed to when the Mara is at its most alive — dawn stalks and dusk pursuits, tracked across open plains and riverine bush in a rugged 4x4 built for it.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="g-item g-tall"><img src="https://i.ibb.co/LDBsX71c/IMG-20260723-WA0104.jpg" alt="Game drive vehicle in the Maasai Mara" loading="lazy" onclick="openLightbox('gamedrives',0)"></div>
+      <div class="g-item"><img src="https://i.ibb.co/Cp8fckp0/IMG-20260723-WA0100.jpg" alt="Game drive wildlife sighting" loading="lazy" onclick="openLightbox('gamedrives',1)"></div>
+      <div class="g-item"><img src="https://i.ibb.co/1CrBvzm/IMG-20260723-WA0053.jpg" alt="Game drive safari moment" loading="lazy" onclick="openLightbox('gamedrives',2)"></div>
+      <div class="g-item"><img src="https://i.ibb.co/d4qrFw5J/IMG-20260723-WA0095.jpg" alt="Game drive across the savannah" loading="lazy" onclick="openLightbox('gamedrives',3)"></div>
+      <div class="g-item"><img src="https://i.ibb.co/qL5zmFJV/IMG-20260723-WA0091.jpg" alt="Game drive wildlife encounter" loading="lazy" onclick="openLightbox('gamedrives',4)"></div>
+      <div class="g-item"><img src="https://i.ibb.co/zWQHrwZ0/IMG-20260723-WA0036.jpg" alt="Game drive tracking wildlife" loading="lazy" onclick="openLightbox('gamedrives',5)"></div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="#booking" class="btn btn-primary">Book a Game Drive</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BIG FIVE ============ -->
+<section class="section-tight" id="big-five" style="padding-top:0;">
+  <div class="dark-full reveal" style="border-radius:28px;margin:0 24px;max-width:1240px;margin-left:auto;margin-right:auto;">
+    <img src="https://i.ibb.co/LDLLd75B/e4d097d7ab699ed0294fd5e4e5ae1f0f.jpg" alt="Big Five safari adventure in the Maasai Mara" loading="lazy" style="border-radius:28px;">
+    <div class="overlay" style="border-radius:28px;">
+      <div class="overlay-inner">
+        <div class="field-log">Field Log — The Big Five</div>
+        <h2>Big Five Safaris</h2>
+        <p>Lion, leopard, elephant, buffalo, rhino. Five animals that define the safari story — and a Mara ecosystem still wild enough to hold all five within reach of a single drive.</p>
+        <a href="#booking" class="btn btn-primary" style="margin-top:22px;">Plan a Big Five Safari</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BALLOON SAFARIS ============ -->
+<section class="dark-band" id="balloon">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="field-log">Field Log — Sunrise, 500ft</div>
+      <h2>Balloon Safaris</h2>
+      <p>Lift off before the plains wake up. Drift silently over migrating herds and winding rivers, then land to a champagne breakfast laid out in the bush.</p>
+    </div>
+    <div class="trio reveal">
+      <div class="t-main"><img src="https://i.ibb.co/N2h2BTWP/23edacaa9a8fe2bddfe29aceff2ca824.jpg" alt="Hot air balloon safari over the Maasai Mara" loading="lazy" onclick="openLightbox('balloon',0)"></div>
+      <div class="t-small"><img src="https://i.ibb.co/jk01p8NV/b0adc26a936bae9e41a64c10089982af.jpg" alt="Balloon safari sunrise flight" loading="lazy" onclick="openLightbox('balloon',1)"></div>
+      <div class="t-small"><img src="https://i.ibb.co/cSFjy7WT/0e57e8b00658df5627e3859e2fe16336.jpg" alt="Hot air balloon over the savannah" loading="lazy" onclick="openLightbox('balloon',2)"></div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="#booking" class="btn btn-primary">Book a Balloon Flight</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAASAI VILLAGE TOUR ============ -->
+<section id="village-tour">
+  <div class="container">
+    <div class="exp-block reverse reveal">
+      <div class="exp-media">
+        <div class="frame"><img src="https://i.ibb.co/cSV5KbH9/9ac561e90721ad68b2efac41cab981a1.jpg" alt="Maasai village tour and traditions" loading="lazy"></div>
+      </div>
+      <div class="exp-text">
+        <div class="field-log">Field Log — Community Visit</div>
+        <h2>Maasai Village Tour</h2>
+        <p>Beyond the Manyatta, spend time with the wider Maasai community — the adumu jumping dance, warrior traditions, herding practice, and craft markets supporting local families directly.</p>
+        <p>Every visit is arranged respectfully and in partnership with the community, with proceeds supporting local schools and healthcare.</p>
+        <a href="#booking" class="btn btn-primary">Add a Village Tour</a>
+      </div>
+    </div>
+    <div class="gallery-grid reveal" style="margin-top:60px;grid-template-columns:repeat(3,1fr);">
+      <div class="g-item"><img src="https://i.ibb.co/cSV5KbH9/9ac561e90721ad68b2efac41cab981a1.jpg" alt="Maasai village traditions" loading="lazy" onclick="openLightbox('village',0)"></div>
+      <div class="g-item"><img src="https://i.ibb.co/bjcSt0z0/7d1c77dbaf6ac1db4ea723819bb03006.jpg" alt="Maasai village community" loading="lazy" onclick="openLightbox('village',1)"></div>
+      <div class="g-item"><img src="https://i.ibb.co/MyZkkhRg/10d98c1e4db62fc8ea936a79046034d4.jpg" alt="Maasai village tour visitors" loading="lazy" onclick="openLightbox('village',2)"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WILDLIFE PHOTOGRAPHY ============ -->
+<section id="gallery" class="dark-band">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="field-log">Field Log — Through the Lens</div>
+      <h2>Wildlife Photography</h2>
+      <p>A collection from recent drives — unedited moments of the Mara's residents, captured close and often at first light.</p>
+    </div>
+    <div class="masonry reveal" id="photoMasonry"></div>
+  </div>
+</section>
+
+<!-- ============ GUIDE ============ -->
+<section id="guide">
+  <div class="container">
+    <div class="guide-wrap reveal">
+      <div class="guide-photos">
+        <img src="https://i.ibb.co/KcdBfhYk/IMG-20260723-WA0024.jpg" alt="Simon Kupai, safari guide and driver" loading="lazy">
+        <img src="https://i.ibb.co/MDx1WTSt/IMG-20260723-WA0037.jpg" alt="Simon Kupai on safari" loading="lazy">
+        <img src="https://i.ibb.co/HTvLf6CV/IMG-20260723-WA0086.jpg" alt="Simon Kupai guiding a game drive" loading="lazy">
+        <img src="https://i.ibb.co/ksxLB0Hd/IMG-20260723-WA0041.jpg" alt="Simon Kupai professional driver" loading="lazy">
+      </div>
+      <div class="guide-card">
+        <div class="field-log">Field Log — Lead Guide</div>
+        <h3>Simon Kupai</h3>
+        <div class="guide-role">Tour Guide &amp; Professional Driver</div>
+        <p>Born and raised on the edge of the Mara, Simon has spent his career reading this landscape — where the herds move with the rains, which ridge the lions favour at dusk, how to find a leopard before it finds you.</p>
+        <p>Calm behind the wheel and generous with his knowledge, Simon turns every drive into a lesson in the bush, no matter how many times you've been out before.</p>
+        <div class="guide-stats">
+          <div><strong>Local</strong><span>Born in the Mara</span></div>
+          <div><strong>Fluent</strong><span>English &amp; Maa</span></div>
+          <div><strong>Hands-on</strong><span>Driver &amp; Guide</span></div>
+        </div>
+        <a href="https://wa.me/254728299843" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:26px;">Ask Simon a Question</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials" class="dark-band">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="field-log">Field Log — Guest Notes</div>
+      <h2>What Our Guests Say</h2>
+      <p>Real notes from travellers who've ridden out with us.</p>
+    </div>
+    <div class="testi-grid reveal" id="staticTesti">
+      <div class="glass testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Simon spotted a leopard in a tree from what felt like a mile away. Genuinely the best guide we've ever had on safari."</p>
+        <div class="testi-who"><div class="testi-avatar">A</div><div><strong>Amara T.</strong><span>United Kingdom</span></div></div>
+      </div>
+      <div class="glass testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The balloon safari at sunrise was worth the entire trip on its own. Champagne breakfast in the bush after — unreal."</p>
+        <div class="testi-who"><div class="testi-avatar">D</div><div><strong>Daniel R.</strong><span>Netherlands</span></div></div>
+      </div>
+      <div class="glass testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"The Manyatta visit was handled with so much respect. We learned more in two hours than in every documentary combined."</p>
+        <div class="testi-who"><div class="testi-avatar">M</div><div><strong>Mei L.</strong><span>Singapore</span></div></div>
+      </div>
+    </div>
+
+    <div class="glass form-card reveal" style="margin-top:56px;max-width:760px;margin-left:auto;margin-right:auto;">
+      <h3 style="margin-bottom:22px;font-size:22px;color:var(--charcoal);">Share Your Experience</h3>
+      <form id="reviewForm">
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" id="revName" required placeholder="Your name"></div>
+          <div class="field"><label>Country</label><input type="text" id="revCountry" required placeholder="Your country"></div>
+          <div class="field full"><label>Rating</label>
+            <div class="star-input" id="starInput" data-rating="5">
+              <span data-v="1">★</span><span data-v="2">★</span><span data-v="3">★</span><span data-v="4">★</span><span data-v="5">★</span>
+            </div>
+          </div>
+          <div class="field full"><label>Your Review</label><textarea id="revMessage" required placeholder="Tell us about your safari..."></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Submit Review</button>
+      </form>
+    </div>
+
+    <div class="review-log" id="savedReviews"></div>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section id="booking" class="booking-section">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="field-log">Field Log — Reserve Your Dates</div>
+      <h2>Book Your Safari</h2>
+      <p>Tell us what you have in mind and we'll confirm availability over WhatsApp within the day.</p>
+    </div>
+    <div class="glass form-card reveal" style="max-width:880px;margin:0 auto;">
+      <form id="bookingForm">
+        <div class="form-grid">
+          <div class="field"><label>Full Name</label><input type="text" id="bkName" required placeholder="Your full name"></div>
+          <div class="field"><label>Email Address</label><input type="email" id="bkEmail" required placeholder="you@email.com"></div>
+          <div class="field"><label>Phone Number</label><input type="tel" id="bkPhone" required placeholder="+254 7XX XXX XXX"></div>
+          <div class="field"><label>Number of Guests</label><input type="number" id="bkGuests" min="1" required placeholder="e.g. 2"></div>
+          <div class="field"><label>Preferred Safari Package</label>
+            <select id="bkPackage" required>
+              <option value="">Select a package</option>
+              <option>Game Drives</option>
+              <option>Big Five Safari</option>
+              <option>Balloon Safari</option>
+              <option>Manyatta &amp; Village Tour</option>
+              <option>Full Safari Experience</option>
+            </select>
+          </div>
+          <div class="field"><label>Arrival Date</label><input type="date" id="bkArrival" required></div>
+          <div class="field"><label>Departure Date</label><input type="date" id="bkDeparture" required></div>
+          <div class="field full"><label>Special Requests</label><textarea id="bkRequests" placeholder="Dietary needs, celebrations, accessibility, etc."></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Book Now</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="dark-band">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="field-log">Field Log — Get in Touch</div>
+      <h2>Contact Us</h2>
+      <p>Reach out any time — over a call, WhatsApp, or the form below.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div class="glass contact-card">
+        <div class="contact-row">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></div>
+          <div><strong>Call Us</strong><span>+254 728 299843</span></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Z" opacity="0"/><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg></div>
+          <div><strong>WhatsApp</strong><span>+254 728 299843</span></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <div><strong>Business Hours</strong><span>Daily, 5:30am – 8:00pm (EAT)</span></div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:24px;">
+          <a href="tel:+254728299843" class="btn btn-primary" style="flex:1;justify-content:center;">Call Now</a>
+          <a href="https://wa.me/254728299843" target="_blank" rel="noopener" class="btn btn-glass" style="flex:1;justify-content:center;">WhatsApp</a>
+        </div>
+        <form id="contactForm" style="margin-top:28px;">
+          <div class="field"><label>Your Name</label><input type="text" id="ctName" required placeholder="Name"></div>
+          <div class="field"><label>Email</label><input type="email" id="ctEmail" required placeholder="Email address"></div>
+          <div class="field"><label>Message</label><textarea id="ctMessage" required placeholder="How can we help?"></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+        </form>
+      </div>
+      <div class="map-frame reveal">
+        <iframe src="https://www.google.com/maps?q=Maasai%20Mara%20National%20Reserve%2C%20Kenya&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Location map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><span class="logo-mark"></span> Jungle Boy Adventures</div>
+        <p style="font-size:14px;line-height:1.7;max-width:280px;color:rgba(255,255,255,0.6);">Bespoke luxury safaris through the Maasai Mara, guided by local hands who know the land like family.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/254728299843" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.25-1.5 1.55-1.5H17V3.7c-.28-.04-1.25-.13-2.38-.13-2.36 0-3.97 1.44-3.97 4.1v2.2H8v3.1h2.65V21h2.85Z"/></svg></a>
+          <a href="tel:+254728299843" aria-label="Call"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="#manyatta">Manyatta Visit</a>
+        <a href="#game-drives">Game Drives</a>
+        <a href="#big-five">Big Five Safaris</a>
+        <a href="#balloon">Balloon Safaris</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#guide">Our Guide</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#booking">Book Safari</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+254728299843">+254 728 299843</a>
+        <a href="https://wa.me/254728299843">WhatsApp Chat</a>
+        <a href="#contact">Maasai Mara, Kenya</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Jungle Boy Adventures. All rights reserved.</span>
+      <span>Crafted for the wild, with care.</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/254728299843" target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+</a>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+  <div class="lightbox-nav lightbox-prev" onclick="navLightbox(-1)">‹</div>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-nav lightbox-next" onclick="navLightbox(1)">›</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------- Mobile nav ---------- */
+const hamburger=document.getElementById('hamburger');
+const mobilePanel=document.getElementById('mobilePanel');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('active');
+  mobilePanel.classList.toggle('open');
+});
+document.querySelectorAll('.mobile-panel a').forEach(a=>a.addEventListener('click',()=>{
+  hamburger.classList.remove('active');mobilePanel.classList.remove('open');
+}));
+
+/* ---------- Scroll reveal ---------- */
+const revealEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+
+/* ---------- Hero slider ---------- */
+const slides=document.querySelectorAll('.hero-slide');
+const dotsWrap=document.getElementById('heroDots');
+let heroIndex=0;
+slides.forEach((_,i)=>{
+  const b=document.createElement('button');
+  if(i===0)b.classList.add('active');
+  b.addEventListener('click',()=>showSlide(i));
+  dotsWrap.appendChild(b);
+});
+function showSlide(i){
+  slides[heroIndex].classList.remove('active');
+  dotsWrap.children[heroIndex].classList.remove('active');
+  heroIndex=i;
+  slides[heroIndex].classList.add('active');
+  dotsWrap.children[heroIndex].classList.add('active');
+}
+setInterval(()=>{ showSlide((heroIndex+1)%slides.length); },5500);
+
+/* ---------- Toast helper ---------- */
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
+
+/* ---------- Lightbox galleries ---------- */
+const galleries={
+  manyatta:[
+    'https://i.ibb.co/yBQ9vVcR/8df5905e8ecdf8bb0542825288b905ea.jpg',
+    'https://i.ibb.co/0yDSsQmk/526425c3bec4cdd6139406c4810242cf.jpg',
+    'https://i.ibb.co/zKFhmQK/525bc87a46faec542c7b5e27e64b01ef.jpg',
+    'https://i.ibb.co/6R5Rqd16/5376d4cfe3a0fd3b780ad6b76bde0290.jpg'
+  ],
+  gamedrives:[
+    'https://i.ibb.co/LDBsX71c/IMG-20260723-WA0104.jpg',
+    'https://i.ibb.co/Cp8fckp0/IMG-20260723-WA0100.jpg',
+    'https://i.ibb.co/1CrBvzm/IMG-20260723-WA0053.jpg',
+    'https://i.ibb.co/d4qrFw5J/IMG-20260723-WA0095.jpg',
+    'https://i.ibb.co/qL5zmFJV/IMG-20260723-WA0091.jpg',
+    'https://i.ibb.co/zWQHrwZ0/IMG-20260723-WA0036.jpg'
+  ],
+  balloon:[
+    'https://i.ibb.co/N2h2BTWP/23edacaa9a8fe2bddfe29aceff2ca824.jpg',
+    'https://i.ibb.co/jk01p8NV/b0adc26a936bae9e41a64c10089982af.jpg',
+    'https://i.ibb.co/cSFjy7WT/0e57e8b00658df5627e3859e2fe16336.jpg'
+  ],
+  village:[
+    'https://i.ibb.co/cSV5KbH9/9ac561e90721ad68b2efac41cab981a1.jpg',
+    'https://i.ibb.co/bjcSt0z0/7d1c77dbaf6ac1db4ea723819bb03006.jpg',
+    'https://i.ibb.co/MyZkkhRg/10d98c1e4db62fc8ea936a79046034d4.jpg'
+  ],
+  photography:[
+    'https://i.ibb.co/r8bmX6d/motion-photo-6119698022410103255.jpg',
+    'https://i.ibb.co/v4ng0Jjd/IMG-20260723-WA0105.jpg',
+    'https://i.ibb.co/fVvhRf04/IMG-20260723-WA0106.jpg',
+    'https://i.ibb.co/LDBsX71c/IMG-20260723-WA0104.jpg',
+    'https://i.ibb.co/gbTN9Nd0/IMG-20260723-WA0102.jpg',
+    'https://i.ibb.co/XfwK7TmP/IMG-20260723-WA0103.jpg',
+    'https://i.ibb.co/gFgq2jYy/IMG-20260723-WA0097.jpg',
+    'https://i.ibb.co/nM6G2md8/motion-photo-6037153308459650533.jpg',
+    'https://i.ibb.co/35JqQcYt/IMG-20260723-WA0096.jpg',
+    'https://i.ibb.co/k2c6d0H5/IMG-20260723-WA0094.jpg',
+    'https://i.ibb.co/zC4NhGF/IMG-20260723-WA0093.jpg',
+    'https://i.ibb.co/gZW12g43/motion-photo-3760183298092273802.jpg',
+    'https://i.ibb.co/dwCS3DBs/IMG-20260723-WA0092.jpg'
+  ]
+};
+
+/* build masonry photography gallery dynamically */
+const masonryWrap=document.getElementById('photoMasonry');
+galleries.photography.forEach((src,i)=>{
+  const div=document.createElement('div');
+  div.className='m-item';
+  div.innerHTML=`<img src="${src}" alt="Wildlife photography from the Maasai Mara" loading="lazy" onclick="openLightbox('photography',${i})">`;
+  masonryWrap.appendChild(div);
+});
+
+let currentGallery=[];
+let currentIdx=0;
+function openLightbox(name,idx){
+  currentGallery=galleries[name];
+  currentIdx=idx;
+  document.getElementById('lightboxImg').src=currentGallery[currentIdx];
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');}
+function navLightbox(dir){
+  currentIdx=(currentIdx+dir+currentGallery.length)%currentGallery.length;
+  document.getElementById('lightboxImg').src=currentGallery[currentIdx];
+}
+document.getElementById('lightbox').addEventListener('click',(e)=>{ if(e.target.id==='lightbox') closeLightbox(); });
+document.addEventListener('keydown',(e)=>{
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.key==='Escape')closeLightbox();
+  if(e.key==='ArrowRight')navLightbox(1);
+  if(e.key==='ArrowLeft')navLightbox(-1);
+});
+
+/* ---------- Star rating input ---------- */
+const starInput=document.getElementById('starInput');
+const stars=starInput.querySelectorAll('span');
+function setStars(v){
+  stars.forEach(s=>{ s.classList.toggle('active',parseInt(s.dataset.v)<=v); s.style.color = parseInt(s.dataset.v)<=v ? '#C79A56':'#d9cfc7'; });
+  starInput.dataset.rating=v;
+}
+stars.forEach(s=>s.addEventListener('click',()=>setStars(parseInt(s.dataset.v))));
+setStars(5);
+
+/* ---------- Reviews: load + save to localStorage ---------- */
+const REVIEW_KEY='jba_reviews';
+function loadReviews(){
+  try{ return JSON.parse(localStorage.getItem(REVIEW_KEY))||[]; }catch(e){ return []; }
+}
+function saveReviews(list){ localStorage.setItem(REVIEW_KEY,JSON.stringify(list)); }
+function renderReviews(){
+  const wrap=document.getElementById('savedReviews');
+  const list=loadReviews();
+  wrap.innerHTML='';
+  list.slice().reverse().forEach(r=>{
+    const card=document.createElement('div');
+    card.className='glass testi-card';
+    const initial=r.name.trim().charAt(0).toUpperCase()||'G';
+    card.innerHTML=`
+      <div class="testi-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+      <p>"${r.message}"</p>
+      <div class="testi-who"><div class="testi-avatar">${initial}</div><div><strong>${r.name}</strong><span>${r.country}</span></div></div>`;
+    wrap.appendChild(card);
+  });
+}
+renderReviews();
+
+document.getElementById('reviewForm').addEventListener('submit',(e)=>{
+  e.preventDefault();
+  const name=document.getElementById('revName').value.trim();
+  const country=document.getElementById('revCountry').value.trim();
+  const message=document.getElementById('revMessage').value.trim();
+  const rating=parseInt(starInput.dataset.rating)||5;
+  if(!name||!country||!message)return;
+  const list=loadReviews();
+  list.push({name,country,message,rating,date:Date.now()});
+  saveReviews(list);
+  renderReviews();
+  e.target.reset();
+  setStars(5);
+  showToast('Thank you! Your review has been posted.');
+});
+
+/* ---------- Booking form -> WhatsApp ---------- */
+document.getElementById('bookingForm').addEventListener('submit',(e)=>{
+  e.preventDefault();
+  const name=document.getElementById('bkName').value.trim();
+  const email=document.getElementById('bkEmail').value.trim();
+  const phone=document.getElementById('bkPhone').value.trim();
+  const guests=document.getElementById('bkGuests').value.trim();
+  const pkg=document.getElementById('bkPackage').value;
+  const arrival=document.getElementById('bkArrival').value;
+  const departure=document.getElementById('bkDeparture').value;
+  const requests=document.getElementById('bkRequests').value.trim();
+  const msg=`Hello Jungle Boy Adventures! I'd like to book a safari.%0A%0A`+
+    `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AGuests: ${guests}%0APackage: ${pkg}%0AArrival: ${arrival}%0ADeparture: ${departure}%0ASpecial Requests: ${requests||'None'}`;
+  window.open(`https://wa.me/254728299843?text=${msg}`,'_blank');
+  showToast('Opening WhatsApp to confirm your booking...');
+  e.target.reset();
+});
+
+/* ---------- Contact form -> WhatsApp ---------- */
+document.getElementById('contactForm').addEventListener('submit',(e)=>{
+  e.preventDefault();
+  const name=document.getElementById('ctName').value.trim();
+  const email=document.getElementById('ctEmail').value.trim();
+  const message=document.getElementById('ctMessage').value.trim();
+  const msg=`Hello, my name is ${name} (${email}).%0A%0A${message}`;
+  window.open(`https://wa.me/254728299843?text=${msg}`,'_blank');
+  showToast('Opening WhatsApp to send your message...');
+  e.target.reset();
+});
+</script>
+</body>
+</html>
