@@ -210,25 +210,47 @@ section{position:relative;padding:120px 0;}
   .exp-media img{height:340px;}
 }
 
-/* gallery grids */
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:10px;}
-.gallery-grid .g-item{border-radius:18px;overflow:hidden;position:relative;cursor:pointer;box-shadow:0 14px 32px -18px rgba(33,23,20,0.4);}
-.gallery-grid .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
-.gallery-grid .g-item:hover img{transform:scale(1.08);}
-.gallery-grid .g-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,10,8,0.45));opacity:0;transition:opacity .4s;}
-.gallery-grid .g-item:hover::after{opacity:1;}
-.g-tall{grid-row:span 2;}
-.gallery-grid .g-item img{height:230px;}
-.g-tall img{height:100%;min-height:476px;}
-@media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);} .g-tall img{min-height:230px;}}
-
-/* masonry photography */
-.masonry{column-count:4;column-gap:16px;margin-top:10px;}
-.masonry .m-item{break-inside:avoid;margin-bottom:16px;border-radius:16px;overflow:hidden;cursor:pointer;box-shadow:0 14px 30px -18px rgba(33,23,20,0.4);position:relative;}
-.masonry .m-item img{width:100%;display:block;transition:transform .6s var(--ease);}
-.masonry .m-item:hover img{transform:scale(1.06);}
-@media(max-width:1100px){.masonry{column-count:3;}}
-@media(max-width:700px){.masonry{column-count:2;column-gap:10px;} .masonry .m-item{margin-bottom:10px;}}
+/* image sliders (all galleries) */
+.carousel{position:relative;}
+.carousel-track{
+  display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;-webkit-overflow-scrolling:touch;
+  padding:2px 2px 10px;margin:0 -2px;
+}
+.carousel-track::-webkit-scrollbar{display:none;}
+.carousel-track{scrollbar-width:none;-ms-overflow-style:none;}
+.carousel-item{
+  flex:0 0 auto;width:300px;height:380px;border-radius:20px;overflow:hidden;
+  position:relative;cursor:pointer;scroll-snap-align:start;
+  box-shadow:0 14px 32px -18px rgba(33,23,20,0.4);
+}
+.carousel-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease);}
+.carousel-item:hover img{transform:scale(1.08);}
+.carousel-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(20,10,8,0.4));opacity:0;transition:opacity .4s;}
+.carousel-item:hover::after{opacity:1;}
+.carousel-item.tall{height:460px;}
+.carousel-item.wide{width:420px;}
+.carousel-nav{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:6;
+  width:48px;height:48px;border-radius:50%;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.75);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);
+  border:1px solid rgba(255,255,255,0.6);box-shadow:0 14px 30px -12px rgba(33,23,20,0.4);
+  color:var(--charcoal);font-size:20px;transition:background .3s,color .3s,transform .3s;
+}
+.carousel-nav:hover{background:var(--crimson);color:#fff;transform:translateY(-50%) scale(1.06);}
+.carousel-prev{left:-6px;}
+.carousel-next{right:-6px;}
+.dark-band .carousel-nav{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.28);color:#fff;}
+.dark-band .carousel-nav:hover{background:var(--crimson-bright);}
+@media(max-width:700px){
+  .carousel-item{width:230px;height:300px;}
+  .carousel-item.tall{height:340px;}
+  .carousel-item.wide{width:280px;}
+  .carousel-nav{width:40px;height:40px;font-size:17px;}
+  .carousel-prev{left:2px;}
+  .carousel-next{right:2px;}
+}
 
 /* dark band sections (sundowner / balloon) */
 .dark-band{background:radial-gradient(ellipse at 30% 20%,#3a2117 0%,var(--charcoal) 60%);color:var(--white);}
@@ -243,14 +265,6 @@ section{position:relative;padding:120px 0;}
 .dark-full h2{color:var(--white);font-size:clamp(30px,4vw,48px);}
 .dark-full p{color:rgba(255,255,255,0.82);margin-top:16px;line-height:1.75;font-size:15.5px;}
 @media(max-width:900px){.dark-full img{height:460px;} .dark-full .overlay{background:linear-gradient(180deg,rgba(20,10,8,0.35),rgba(20,10,8,0.92));align-items:flex-end;} .dark-full .overlay-inner{padding:30px;max-width:100%;}}
-
-/* balloon 3-image feature */
-.trio{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:560px;}
-.trio .t-main{grid-row:span 2;border-radius:22px;overflow:hidden;}
-.trio .t-small{border-radius:22px;overflow:hidden;}
-.trio img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
-.trio div:hover img{transform:scale(1.06);}
-@media(max-width:900px){.trio{grid-template-columns:1fr;grid-template-rows:auto;height:auto;} .trio .t-main{grid-row:auto;} .trio img{height:280px;}}
 
 /* guide profile */
 .guide-wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;align-items:center;}
@@ -478,11 +492,15 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.75);padding:80px 0 30
         <a href="#booking" class="btn btn-primary">Add to My Safari</a>
       </div>
     </div>
-    <div class="gallery-grid reveal" style="margin-top:60px;">
-      <div class="g-item g-tall"><img src="https://i.ibb.co/yBQ9vVcR/8df5905e8ecdf8bb0542825288b905ea.jpg" alt="Maasai Manyatta homestead" loading="lazy" onclick="openLightbox('manyatta',0)"></div>
-      <div class="g-item"><img src="https://i.ibb.co/0yDSsQmk/526425c3bec4cdd6139406c4810242cf.jpg" alt="Maasai cultural visit" loading="lazy" onclick="openLightbox('manyatta',1)"></div>
-      <div class="g-item"><img src="https://i.ibb.co/zKFhmQK/525bc87a46faec542c7b5e27e64b01ef.jpg" alt="Maasai Manyatta community" loading="lazy" onclick="openLightbox('manyatta',2)"></div>
-      <div class="g-item" style="grid-column:span 2;"><img src="https://i.ibb.co/6R5Rqd16/5376d4cfe3a0fd3b780ad6b76bde0290.jpg" alt="Maasai Manyatta traditions" loading="lazy" onclick="openLightbox('manyatta',3)"></div>
+    <div class="carousel reveal" style="margin-top:60px;">
+      <button class="carousel-nav carousel-prev" data-target="manyattaTrack" aria-label="Previous">‹</button>
+      <div class="carousel-track" id="manyattaTrack">
+        <div class="carousel-item tall"><img src="https://i.ibb.co/yBQ9vVcR/8df5905e8ecdf8bb0542825288b905ea.jpg" alt="Maasai Manyatta homestead" loading="lazy" onclick="openLightbox('manyatta',0)"></div>
+        <div class="carousel-item"><img src="https://i.ibb.co/0yDSsQmk/526425c3bec4cdd6139406c4810242cf.jpg" alt="Maasai cultural visit" loading="lazy" onclick="openLightbox('manyatta',1)"></div>
+        <div class="carousel-item"><img src="https://i.ibb.co/zKFhmQK/525bc87a46faec542c7b5e27e64b01ef.jpg" alt="Maasai Manyatta community" loading="lazy" onclick="openLightbox('manyatta',2)"></div>
+        <div class="carousel-item wide"><img src="https://i.ibb.co/6R5Rqd16/5376d4cfe3a0fd3b780ad6b76bde0290.jpg" alt="Maasai Manyatta traditions" loading="lazy" onclick="openLightbox('manyatta',3)"></div>
+      </div>
+      <button class="carousel-nav carousel-next" data-target="manyattaTrack" aria-label="Next">›</button>
     </div>
   </div>
 </section>
@@ -510,13 +528,17 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.75);padding:80px 0 30
       <h2>Game Drives</h2>
       <p>Twice-daily drives timed to when the Mara is at its most alive — dawn stalks and dusk pursuits, tracked across open plains and riverine bush in a rugged 4x4 built for it.</p>
     </div>
-    <div class="gallery-grid reveal">
-      <div class="g-item g-tall"><img src="https://i.ibb.co/LDBsX71c/IMG-20260723-WA0104.jpg" alt="Game drive vehicle in the Maasai Mara" loading="lazy" onclick="openLightbox('gamedrives',0)"></div>
-      <div class="g-item"><img src="https://i.ibb.co/Cp8fckp0/IMG-20260723-WA0100.jpg" alt="Game drive wildlife sighting" loading="lazy" onclick="openLightbox('gamedrives',1)"></div>
-      <div class="g-item"><img src="https://i.ibb.co/1CrBvzm/IMG-20260723-WA0053.jpg" alt="Game drive safari moment" loading="lazy" onclick="openLightbox('gamedrives',2)"></div>
-      <div class="g-item"><img src="https://i.ibb.co/d4qrFw5J/IMG-20260723-WA0095.jpg" alt="Game drive across the savannah" loading="lazy" onclick="openLightbox('gamedrives',3)"></div>
-      <div class="g-item"><img src="https://i.ibb.co/qL5zmFJV/IMG-20260723-WA0091.jpg" alt="Game drive wildlife encounter" loading="lazy" onclick="openLightbox('gamedrives',4)"></div>
-      <div class="g-item"><img src="https://i.ibb.co/zWQHrwZ0/IMG-20260723-WA0036.jpg" alt="Game drive tracking wildlife" loading="lazy" onclick="openLightbox('gamedrives',5)"></div>
+    <div class="carousel reveal">
+      <button class="carousel-nav carousel-prev" data-target="gamedrivesTrack" aria-label="Previous">‹</button>
+      <div class="carousel-track" id="gamedrivesTrack">
+        <div class="carousel-item tall"><img src="https://i.ibb.co/LDBsX71c/IMG-20260723-WA0104.jpg" alt="Game drive vehicle in the Maasai Mara" loading="lazy" onclick="openLightbox('gamedrives',0)"></div>
+        <div class="carousel-item"><img src="https://i.ibb.co/Cp8fckp0/IMG-20260723-WA0100.jpg" alt="Game drive wildlife sighting" loading="lazy" onclick="openLightbox('gamedrives',1)"></div>
+        <div class="carousel-item"><img src="https://i.ibb.co/1CrBvzm/IMG-20260723-WA0053.jpg" alt="Game drive safari moment" loading="lazy" onclick="openLightbox('gamedrives',2)"></div>
+        <div class="carousel-item"><img src="https://i.ibb.co/d4qrFw5J/IMG-20260723-WA0095.jpg" alt="Game drive across the savannah" loading="lazy" onclick="openLightbox('gamedrives',3)"></div>
+        <div class="carousel-item"><img src="https://i.ibb.co/qL5zmFJV/IMG-20260723-WA0091.jpg" alt="Game drive wildlife encounter" loading="lazy" onclick="openLightbox('gamedrives',4)"></div>
+        <div class="carousel-item wide"><img src="https://i.ibb.co/zWQHrwZ0/IMG-20260723-WA0036.jpg" alt="Game drive tracking wildlife" loading="lazy" onclick="openLightbox('gamedrives',5)"></div>
+      </div>
+      <button class="carousel-nav carousel-next" data-target="gamedrivesTrack" aria-label="Next">›</button>
     </div>
     <div style="text-align:center;margin-top:40px;">
       <a href="#booking" class="btn btn-primary">Book a Game Drive</a>
@@ -547,10 +569,14 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.75);padding:80px 0 30
       <h2>Balloon Safaris</h2>
       <p>Lift off before the plains wake up. Drift silently over migrating herds and winding rivers, then land to a champagne breakfast laid out in the bush.</p>
     </div>
-    <div class="trio reveal">
-      <div class="t-main"><img src="https://i.ibb.co/N2h2BTWP/23edacaa9a8fe2bddfe29aceff2ca824.jpg" alt="Hot air balloon safari over the Maasai Mara" loading="lazy" onclick="openLightbox('balloon',0)"></div>
-      <div class="t-small"><img src="https://i.ibb.co/jk01p8NV/b0adc26a936bae9e41a64c10089982af.jpg" alt="Balloon safari sunrise flight" loading="lazy" onclick="openLightbox('balloon',1)"></div>
-      <div class="t-small"><img src="https://i.ibb.co/cSFjy7WT/0e57e8b00658df5627e3859e2fe16336.jpg" alt="Hot air balloon over the savannah" loading="lazy" onclick="openLightbox('balloon',2)"></div>
+    <div class="carousel reveal">
+      <button class="carousel-nav carousel-prev" data-target="balloonTrack" aria-label="Previous">‹</button>
+      <div class="carousel-track" id="balloonTrack">
+        <div class="carousel-item wide tall"><img src="https://i.ibb.co/N2h2BTWP/23edacaa9a8fe2bddfe29aceff2ca824.jpg" alt="Hot air balloon safari over the Maasai Mara" loading="lazy" onclick="openLightbox('balloon',0)"></div>
+        <div class="carousel-item"><img src="https://i.ibb.co/jk01p8NV/b0adc26a936bae9e41a64c10089982af.jpg" alt="Balloon safari sunrise flight" loading="lazy" onclick="openLightbox('balloon',1)"></div>
+        <div class="carousel-item"><img src="https://i.ibb.co/cSFjy7WT/0e57e8b00658df5627e3859e2fe16336.jpg" alt="Hot air balloon over the savannah" loading="lazy" onclick="openLightbox('balloon',2)"></div>
+      </div>
+      <button class="carousel-nav carousel-next" data-target="balloonTrack" aria-label="Next">›</button>
     </div>
     <div style="text-align:center;margin-top:40px;">
       <a href="#booking" class="btn btn-primary">Book a Balloon Flight</a>
@@ -573,10 +599,14 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.75);padding:80px 0 30
         <a href="#booking" class="btn btn-primary">Add a Village Tour</a>
       </div>
     </div>
-    <div class="gallery-grid reveal" style="margin-top:60px;grid-template-columns:repeat(3,1fr);">
-      <div class="g-item"><img src="https://i.ibb.co/cSV5KbH9/9ac561e90721ad68b2efac41cab981a1.jpg" alt="Maasai village traditions" loading="lazy" onclick="openLightbox('village',0)"></div>
-      <div class="g-item"><img src="https://i.ibb.co/bjcSt0z0/7d1c77dbaf6ac1db4ea723819bb03006.jpg" alt="Maasai village community" loading="lazy" onclick="openLightbox('village',1)"></div>
-      <div class="g-item"><img src="https://i.ibb.co/MyZkkhRg/10d98c1e4db62fc8ea936a79046034d4.jpg" alt="Maasai village tour visitors" loading="lazy" onclick="openLightbox('village',2)"></div>
+    <div class="carousel reveal" style="margin-top:60px;">
+      <button class="carousel-nav carousel-prev" data-target="villageTrack" aria-label="Previous">‹</button>
+      <div class="carousel-track" id="villageTrack">
+        <div class="carousel-item wide"><img src="https://i.ibb.co/cSV5KbH9/9ac561e90721ad68b2efac41cab981a1.jpg" alt="Maasai village traditions" loading="lazy" onclick="openLightbox('village',0)"></div>
+        <div class="carousel-item"><img src="https://i.ibb.co/bjcSt0z0/7d1c77dbaf6ac1db4ea723819bb03006.jpg" alt="Maasai village community" loading="lazy" onclick="openLightbox('village',1)"></div>
+        <div class="carousel-item"><img src="https://i.ibb.co/MyZkkhRg/10d98c1e4db62fc8ea936a79046034d4.jpg" alt="Maasai village tour visitors" loading="lazy" onclick="openLightbox('village',2)"></div>
+      </div>
+      <button class="carousel-nav carousel-next" data-target="villageTrack" aria-label="Next">›</button>
     </div>
   </div>
 </section>
@@ -589,7 +619,11 @@ footer{background:var(--charcoal);color:rgba(255,255,255,0.75);padding:80px 0 30
       <h2>Wildlife Photography</h2>
       <p>A collection from recent drives — unedited moments of the Mara's residents, captured close and often at first light.</p>
     </div>
-    <div class="masonry reveal" id="photoMasonry"></div>
+    <div class="carousel reveal">
+      <button class="carousel-nav carousel-prev" data-target="photoTrack" aria-label="Previous">‹</button>
+      <div class="carousel-track" id="photoTrack"></div>
+      <button class="carousel-nav carousel-next" data-target="photoTrack" aria-label="Next">›</button>
+    </div>
   </div>
 </section>
 
@@ -887,13 +921,24 @@ const galleries={
   ]
 };
 
-/* build masonry photography gallery dynamically */
-const masonryWrap=document.getElementById('photoMasonry');
+/* build photography slider gallery dynamically */
+const photoTrack=document.getElementById('photoTrack');
 galleries.photography.forEach((src,i)=>{
   const div=document.createElement('div');
-  div.className='m-item';
+  div.className='carousel-item'+(i%3===0?' tall':'');
   div.innerHTML=`<img src="${src}" alt="Wildlife photography from the Maasai Mara" loading="lazy" onclick="openLightbox('photography',${i})">`;
-  masonryWrap.appendChild(div);
+  photoTrack.appendChild(div);
+});
+
+/* ---------- Generic carousel prev/next wiring ---------- */
+document.querySelectorAll('.carousel-nav').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const track=document.getElementById(btn.dataset.target);
+    if(!track)return;
+    const item=track.querySelector('.carousel-item');
+    const step=item ? item.getBoundingClientRect().width+16 : 300;
+    track.scrollBy({left:btn.classList.contains('carousel-prev')?-step:step,behavior:'smooth'});
+  });
 });
 
 let currentGallery=[];
